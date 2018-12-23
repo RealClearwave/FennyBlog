@@ -1,9 +1,9 @@
 <?php
-$pas_name = "pages\\" . $_GET["page"] . ".txt";
+$pas_name = "pages/" . $_GET["page"] . ".txt";
 //echo $pas_name;
 echo "<html>";
 echo "<head>";
-echo "<title>" . $pas_name . "</title>";
+echo "<title>" . $_GET["page"] . "</title>";
 echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"></link>";
 echo "</head>";
 echo "<body>";
