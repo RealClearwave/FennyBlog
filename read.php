@@ -4,7 +4,7 @@ $pas_name = "pages\\" . $_GET["page"] . ".txt";
 echo "<html>";
 echo "<head>";
 echo "<title>" . $pas_name . "</title>";
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\">";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"></link>";
 echo "</head>";
 echo "<body>";
 $file=fopen($pas_name,"r") or exit("Bad File!" . $pas_name);
