@@ -6,18 +6,29 @@
  * Time: 16:29
  */
 
-$file = fopen("content-list.txt","x+") or exit("Failed while opening list");
-$map = array();
-$mdir = glob(".txt");
-//clear Unavailable
+function update($org_path)
+{
+    //echo $org_path . "\n";
+    chdir("./pages");
 
-while (!feof($file)){
-    $link = fgets($file);
-    $name = fgets($file);
+    unlink("../config/content-list.txt");
+    $file = fopen("../config/content-list.txt", "a+") or exit("Failed while opening list");
+    $mdir = glob("*.txt");
 
-    array_push($map,$name=>"True");
+    //echo count($mdir);
+    //echo " files to be updated.";
+
+    for ($i = 0; $i < count($mdir); $i++) {
+        $mdir[$i] = substr($mdir[$i], 0, strlen($mdir[$i]) - 4);
+
+        fwrite($file, "read.php?page=" . $mdir[$i] . "\n");
+        fwrite($file, $mdir[$i] . "\n");
+    }
+
+    fclose($file);
+    chdir($org_path);
 }
 
-for ($i = 0;$i < count($mdir);$i++){
-    $mdir[$i] = substr($midr,0,strlen($mdir[$i])-3);
-}
+//update(0);
+?>
+
