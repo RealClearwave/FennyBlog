@@ -20,6 +20,10 @@ function update($org_path)
 
     for ($i = 0; $i < count($mdir); $i++) {
         $mdir[$i] = substr($mdir[$i], 0, strlen($mdir[$i]) - 4);
+        if (substr($mdir[$i],0,1) == "[")
+            fwrite($file,"Headlined\n");
+        else
+            fwrite($file,"Common\n");
 
         fwrite($file, "read.php?page=" . $mdir[$i] . "\n");
         fwrite($file, $mdir[$i] . "\n");

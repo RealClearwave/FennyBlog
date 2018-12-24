@@ -7,13 +7,15 @@
  */
 
 require "admin/update.php";
+require "var/ui_frames.php";
+
 update(dirname(__FILE__));
+
 $pas_name = "config/content-list.txt";
 $file=fopen($pas_name,"r") or exit("Bad File!" . $pas_name);
-echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"style.css\"></link>";
-echo "<h1>Content List:</h1>";
-while (!feof($file)){
-    //echo  fgets($file) . "<br>" . fgets($file);
-    echo "<a href=\"" . fgets($file) . "\">" . fgets($file) ."</a><br>";
-}
+echo "<title>" . sitename . "</title>";
+echo "<link rel=\"stylesheet\" type=\"text/css\" href=\"usr/style.css\"></link>";
+echo "<h1>" . sitename . "</h1>";
+list_headlines();
+list_pages();
 fclose($file);

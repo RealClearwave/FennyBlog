@@ -7,7 +7,7 @@
  */
 
 require "update.php";
-require "Parsedown.php";
+require "../var/Parsedown.php";
 
 $psd = new Parsedown();
 $w_into = $_POST["tlc"];

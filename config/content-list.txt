@@ -1,2 +1,6 @@
+Common
 read.php?page=Hello world
 Hello world
+Headlined
+read.php?page=[About]
+[About]
